@@ -1,0 +1,488 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+/* ============================================================================
+   CUSTOM PROPERTIES (CSS Variables)
+   ============================================================================ */
+
+:root {
+  --primary-neon: #00ff88;
+  --secondary-neon: #ff006e;
+  --accent-neon: #00d9ff;
+  --bg-dark: #0a0e27;
+  --bg-darker: #050813;
+  --border-glow: rgba(0, 255, 136, 0.2);
+  --border-glow-intense: rgba(0, 255, 136, 0.5);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ============================================================================
+   BASE STYLES
+   ============================================================================ */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background: linear-gradient(135deg, #0a0e27 0%, #050813 100%);
+  color: #e5e7eb;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================================================
+   CUSTOM SCROLLBAR
+   ============================================================================ */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 8, 19, 0.8);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #00ff88 0%, #00d9ff 100%);
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #00ff88 0%, #ff006e 100%);
+}
+
+/* ============================================================================
+   GRADIENT TEXT UTILITIES
+   ============================================================================ */
+
+.text-gradient-neon {
+  background: linear-gradient(135deg, #00ff88 0%, #00d9ff 50%, #ff006e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+.text-gradient-cyan-pink {
+  background: linear-gradient(90deg, #00d9ff 0%, #ff006e 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.text-gradient-green-blue {
+  background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 600;
+}
+
+.text-gradient-mono {
+  background: linear-gradient(90deg, #ffffff 0%, #d1d5db 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ============================================================================
+   NEON GLOW EFFECTS
+   ============================================================================ */
+
+.glow-neon-green {
+  box-shadow:
+    0 0 10px rgba(0, 255, 136, 0.3),
+    0 0 20px rgba(0, 255, 136, 0.2),
+    inset 0 0 10px rgba(0, 255, 136, 0.05);
+}
+
+.glow-neon-green-intense {
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.6),
+    0 0 40px rgba(0, 255, 136, 0.4),
+    0 0 60px rgba(0, 255, 136, 0.2),
+    inset 0 0 20px rgba(0, 255, 136, 0.1);
+}
+
+.glow-neon-pink {
+  box-shadow:
+    0 0 10px rgba(255, 0, 110, 0.3),
+    0 0 20px rgba(255, 0, 110, 0.2),
+    inset 0 0 10px rgba(255, 0, 110, 0.05);
+}
+
+.glow-neon-cyan {
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.3),
+    0 0 20px rgba(0, 217, 255, 0.2),
+    inset 0 0 10px rgba(0, 217, 255, 0.05);
+}
+
+.glow-neon-multi {
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.4),
+    0 0 40px rgba(0, 217, 255, 0.2),
+    0 0 60px rgba(255, 0, 110, 0.1);
+}
+
+/* ============================================================================
+   SMOOTH TRANSITIONS
+   ============================================================================ */
+
+.transition-smooth {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-smooth-slow {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.transition-fast {
+  transition: all 0.15s ease-out;
+}
+
+/* ============================================================================
+   SHIMMER LOADING ANIMATION
+   ============================================================================ */
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 2s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 14, 39, 0.8) 0%,
+    rgba(50, 60, 120, 0.4) 50%,
+    rgba(10, 14, 39, 0.8) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+.shimmer-slow {
+  animation: shimmer 3s infinite;
+  background: linear-gradient(
+    90deg,
+    rgba(10, 14, 39, 0.8) 0%,
+    rgba(50, 60, 120, 0.4) 50%,
+    rgba(10, 14, 39, 0.8) 100%
+  );
+  background-size: 1000px 100%;
+}
+
+/* ============================================================================
+   BUTTON STYLES
+   ============================================================================ */
+
+.btn-neon-primary {
+  @apply px-6 py-2.5 font-semibold rounded-lg transition-smooth;
+  background: linear-gradient(135deg, #00ff88 0%, #00d9ff 100%);
+  color: #0a0e27;
+  border: none;
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.3),
+    0 0 40px rgba(0, 217, 255, 0.15);
+  cursor: pointer;
+}
+
+.btn-neon-primary:hover {
+  box-shadow:
+    0 0 30px rgba(0, 255, 136, 0.5),
+    0 0 60px rgba(0, 217, 255, 0.3),
+    0 0 80px rgba(0, 255, 136, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-neon-primary:active {
+  transform: translateY(0);
+}
+
+.btn-neon-secondary {
+  @apply px-6 py-2.5 font-semibold rounded-lg transition-smooth;
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+  border: 1.5px solid rgba(0, 255, 136, 0.4);
+  cursor: pointer;
+}
+
+.btn-neon-secondary:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: rgba(0, 255, 136, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.btn-outline-neon {
+  @apply px-6 py-2.5 font-semibold rounded-lg transition-smooth;
+  background: transparent;
+  color: #00ff88;
+  border: 1.5px solid rgba(0, 255, 136, 0.3);
+  cursor: pointer;
+}
+
+.btn-outline-neon:hover {
+  border-color: rgba(0, 255, 136, 0.6);
+  box-shadow: 0 0 15px rgba(0, 255, 136, 0.2);
+}
+
+/* ============================================================================
+   CARD STYLES
+   ============================================================================ */
+
+.card-dark {
+  @apply rounded-xl p-6 transition-smooth;
+  background: linear-gradient(135deg, rgba(20, 25, 60, 0.8) 0%, rgba(15, 20, 45, 0.6) 100%);
+  border: 1px solid rgba(0, 255, 136, 0.15);
+  backdrop-filter: blur(10px);
+}
+
+.card-dark:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+}
+
+.card-neon-border {
+  @apply rounded-xl p-6 transition-smooth;
+  background: rgba(5, 8, 19, 0.9);
+  border: 1.5px solid rgba(0, 255, 136, 0.3);
+  box-shadow:
+    0 0 15px rgba(0, 255, 136, 0.2),
+    inset 0 0 15px rgba(0, 255, 136, 0.05);
+}
+
+.card-neon-border:hover {
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow:
+    0 0 25px rgba(0, 255, 136, 0.3),
+    inset 0 0 20px rgba(0, 255, 136, 0.08);
+}
+
+/* ============================================================================
+   INPUT STYLES
+   ============================================================================ */
+
+.input-neon {
+  @apply w-full px-4 py-3 rounded-lg font-medium transition-smooth;
+  background: rgba(10, 14, 39, 0.8);
+  border: 1.5px solid rgba(0, 255, 136, 0.2);
+  color: #e5e7eb;
+  backdrop-filter: blur(5px);
+}
+
+.input-neon:focus {
+  outline: none;
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.2),
+    inset 0 0 10px rgba(0, 255, 136, 0.05);
+}
+
+.input-neon::placeholder {
+  color: rgba(229, 231, 235, 0.4);
+}
+
+.textarea-neon {
+  @apply w-full px-4 py-3 rounded-lg font-medium transition-smooth resize-none;
+  background: rgba(10, 14, 39, 0.8);
+  border: 1.5px solid rgba(0, 255, 136, 0.2);
+  color: #e5e7eb;
+  backdrop-filter: blur(5px);
+  min-height: 120px;
+}
+
+.textarea-neon:focus {
+  outline: none;
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow:
+    0 0 20px rgba(0, 255, 136, 0.2),
+    inset 0 0 10px rgba(0, 255, 136, 0.05);
+}
+
+.textarea-neon::placeholder {
+  color: rgba(229, 231, 235, 0.4);
+}
+
+/* ============================================================================
+   TAB NAVIGATION
+   ============================================================================ */
+
+.tab-button {
+  @apply px-6 py-3 font-semibold transition-smooth relative;
+  color: rgba(229, 231, 235, 0.6);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tab-button:hover {
+  color: #e5e7eb;
+}
+
+.tab-button.active {
+  color: #00ff88;
+}
+
+.tab-button.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #00ff88 0%, #00d9ff 100%);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5);
+}
+
+/* ============================================================================
+   BADGE STYLES
+   ============================================================================ */
+
+.badge-neon {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold transition-smooth;
+  background: rgba(0, 255, 136, 0.15);
+  color: #00ff88;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.badge-neon:hover {
+  background: rgba(0, 255, 136, 0.25);
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.2);
+}
+
+.badge-pink {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(255, 0, 110, 0.15);
+  color: #ff006e;
+  border: 1px solid rgba(255, 0, 110, 0.3);
+}
+
+.badge-cyan {
+  @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold;
+  background: rgba(0, 217, 255, 0.15);
+  color: #00d9ff;
+  border: 1px solid rgba(0, 217, 255, 0.3);
+}
+
+/* ============================================================================
+   SPECIAL EFFECTS
+   ============================================================================ */
+
+.blur-effect {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.glass-morphism {
+  background: rgba(15, 20, 45, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow:
+      0 0 10px rgba(0, 255, 136, 0.2),
+      0 0 20px rgba(0, 255, 136, 0.1);
+  }
+  50% {
+    box-shadow:
+      0 0 20px rgba(0, 255, 136, 0.4),
+      0 0 40px rgba(0, 255, 136, 0.2);
+  }
+}
+
+.animate-slide-up {
+  animation: slide-up 0.5s ease-out;
+}
+
+.animate-slideup {
+  animation: slide-up 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fade-in 0.4s ease-in;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* ============================================================================
+   UTILITY OVERRIDES
+   ============================================================================ */
+
+.dark {
+  color-scheme: dark;
+}
+
+/* Ensure dark mode colors work properly */
+.dark body {
+  background: linear-gradient(135deg, #0a0e27 0%, #050813 100%);
+  color: #e5e7eb;
+}
+
+.dark button {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+  .btn-neon-primary,
+  .btn-neon-secondary,
+  .btn-outline-neon {
+    @apply px-4 py-2 text-sm;
+  }
+
+  .card-dark,
+  .card-neon-border {
+    @apply p-4;
+  }
+
+  .tab-button {
+    @apply px-4 py-2 text-sm;
+  }
+}
