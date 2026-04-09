@@ -138,10 +138,8 @@ export default function Home() {
       estimatedViews: ['2.1B', '1.8B', '2.5B', '1.9B', '2.3B'][
         Math.floor(Math.random() * 5)
       ],
-      saturation: Math.random() > 0.4 ? 'oversaturated' : 'competitive',
-      trendDirection: ['rising', 'stable', 'declining'][
-        Math.floor(Math.random() * 3)
-      ] as any,
+      saturation: (Math.random() > 0.4 ? 'oversaturated' : 'competitive') as HashtagResult['saturation'],
+      trendDirection: (['rising', 'stable', 'declining'][Math.floor(Math.random() * 3)]) as HashtagResult['trendDirection'],
       isVerified: true,
     }));
 
@@ -161,12 +159,8 @@ export default function Home() {
         estimatedViews: ['450M', '680M', '320M', '780M', '520M', '610M', '390M'][
           Math.floor(Math.random() * 7)
         ],
-        saturation: ['opportunity', 'competitive', 'oversaturated'][
-          Math.floor(Math.random() * 3)
-        ] as any,
-        trendDirection: ['rising', 'stable', 'declining'][
-          Math.floor(Math.random() * 3)
-        ] as any,
+        saturation: (['opportunity', 'competitive', 'oversaturated'][Math.floor(Math.random() * 3)]) as HashtagResult['saturation'],
+        trendDirection: (['rising', 'stable', 'declining'][Math.floor(Math.random() * 3)]) as HashtagResult['trendDirection'],
         isVerified: Math.random() > 0.6,
       }));
 
@@ -186,12 +180,8 @@ export default function Home() {
         estimatedViews: ['45M', '68M', '32M', '78M', '52M', '61M', '39M'][
           Math.floor(Math.random() * 7)
         ],
-        saturation: ['opportunity', 'competitive', 'oversaturated'][
-          Math.floor(Math.random() * 3)
-        ] as any,
-        trendDirection: ['rising', 'stable', 'declining'][
-          Math.floor(Math.random() * 3)
-        ] as any,
+        saturation: (['opportunity', 'competitive', 'oversaturated'][Math.floor(Math.random() * 3)]) as HashtagResult['saturation'],
+        trendDirection: (['rising', 'stable', 'declining'][Math.floor(Math.random() * 3)]) as HashtagResult['trendDirection'],
         isVerified: false,
       }));
 
